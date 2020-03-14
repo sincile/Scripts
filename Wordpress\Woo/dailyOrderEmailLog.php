@@ -1,6 +1,12 @@
 <?php
+/*
+  This script generates a CSV log file of all 1000 woocommerce orders as well if the order was exported to the client
+  Add this to your cronjob at the end of the day
+  Assumptions: Must have Woo Export Suite Plugin, WP mail must be enabled
+*/
 function dailyOrders(){
 
+/*Determine what info to grab from Woo orders */
   $args = array(
       'limit' => '1000',
       'status' => 'processing',
@@ -8,16 +14,19 @@ function dailyOrders(){
     );
     $orders = wc_get_orders( $args );
 
+  /*File name and timezone creation */
     $date = new DateTime();
     $date->setTimezone(new DateTimeZone('America/New_York'));
     $filename = $date->format('m_d_Y').'.csv';
 
+  /*Log file path*/
     $path = getcwd() .'/path/to/private/logs';
 
+  /*Generate file content*/
     $logFile = fopen($path.$filename, "w") or die("Unable to open file!");
     fwrite($logFile,'Woo-ID'.',WEB-ID'. ',Timestamp,' .'Export_Status' ."\n");
     foreach ($orders as $order){
-      //Meta_data 2 is status on whether the 
+      //Meta_data 2 is status on whether the
       if($order->meta_data[2]->value == 1){
         $orderStatus = 'Exported';
       }
@@ -30,6 +39,7 @@ function dailyOrders(){
     }
     fclose($logFile);
 
+  /*Email the log to the client/myself*/
     $to = array('someone@website.com','me@company.com');
     $subject = 'Woo ID Logs '.$date->format('m-d-Y');
     $body = 'Attached are all purchasing ids proccessed by Woocommerce';
