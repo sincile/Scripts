@@ -14,14 +14,17 @@ function zipValidate($data,$errors) {
   $billZip = $data['billing_postcode'];
   $billState = $data['billing_state'];
 
-  if(strlen($billZip) > 6){
+  //Split the zip if it's a 9 digit code
+  if(strlen($billZip) >= 6){
     $billZip = explode("-",$billZip)[0];
   }
   $billZipURL = "http://api.zippopotam.us/us/".$billZip;
+
   $shipZip = $data['shipping_postcode'];
-  
+
+  //Split the zip if it's a 9 digit code
   $shipState = $data['shipping_state'];
-  if(strlen($shipZip) > 6){
+  if(strlen($shipZip) >= 6){
     $shipZip = explode("-",$shipZip)[0];
   }
   $shipZipURL = "http://api.zippopotam.us/us/".$shipZip;
