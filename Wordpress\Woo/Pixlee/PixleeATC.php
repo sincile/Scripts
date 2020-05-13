@@ -1,5 +1,5 @@
 <!-- This is a script that enables the activation of the Pixlee UGC
-      Our site was highly customized at this point so many of the jQuery selects
+      Our site was highly customized at this point so many of the jQuery selects are overly complicated
 
  -->
 
