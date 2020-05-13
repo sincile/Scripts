@@ -1,3 +1,9 @@
+<!---Change the API Key for this to work
+			API Keys on Line(s):
+								40
+	-->
+<!--- Also requires the cookie to be set inorder for the functions to run  -->
+
 <script>
 	var pixleeObj = {
 		'cart_contents': [],
@@ -34,7 +40,7 @@
 <script id='pixlee_script' src="https://assets.pixlee.com/assets/pixlee_events.js"></script>
 <script type="text/javascript">
     if (typeof Pixlee_Analytics !== 'undefined') {
-        pixlee_analytics = new Pixlee_Analytics("LkaXfizWC6Ttd3tv231L");
+        pixlee_analytics = new Pixlee_Analytics("Your API Key");
     }
 </script>
 

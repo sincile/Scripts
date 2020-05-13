@@ -1,5 +1,6 @@
 <?php
 /*
+  WooCommerce Specific functionality 
   Validator that checks billing & shipping states against the zipcode during checkout.
   Works with 5 or 9 digit US based zipcodes. Stops the checkout and prompts user
   with reasoning if it encounters

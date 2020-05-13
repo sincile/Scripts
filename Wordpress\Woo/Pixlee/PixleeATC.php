@@ -1,14 +1,26 @@
+<!-- This is a script that enables the activation of the Pixlee UGC
+      Our site was highly customized at this point so many of the jQuery selects
 
+ -->
+
+<!---Change the API Key for this to work
+			API Keys on Line(s):
+					      9
+	-->
+<!--- Also requires the cookie to be set inorder for the functions to run  -->
 <script id='pixlee_script' src="https://assets.pixlee.com/assets/pixlee_events.js"></script>
 <script type="text/javascript">
     if (typeof Pixlee_Analytics !== 'undefined') {
-        pixlee_analytics = new Pixlee_Analytics("LkaXfizWC6Ttd3tv231L");
+        pixlee_analytics = new Pixlee_Analytics("Your API Key");
 				console.log('Pixlee obj created');
     }
 </script>
 <!-- END Pixlee -->
 
 <script>
+  // Pixlee message passing function, sets cookies for entire session when
+  // user interacts with the Pixlee UGC wall
+  // Cookie is needed for other script to trigger  
 		function receiveMessage(event) {
 			if (event.data) {
 					try {
