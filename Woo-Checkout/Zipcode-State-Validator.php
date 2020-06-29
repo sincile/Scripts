@@ -1,9 +1,8 @@
 <?php
 /*
-  WooCommerce Specific functionality 
   Validator that checks billing & shipping states against the zipcode during checkout.
   Works with 5 or 9 digit US based zipcodes. Stops the checkout and prompts user
-  with reasoning if it encounters
+  with reasoning if it encounters incorrect zip/state match
 
   This was created as a lot of 3rd party Woo validation plugins are becoming deprecated causing our
   backend to get invalid state/zip/county combinations.
@@ -101,9 +100,10 @@ function zipValidate($data,$errors) {
   catch( Exception $ex ){
     $errors->add( 'validation', $ex);
   }
-  // Uncheck this to prevent the order from going through
+  // V Uncheck this to prevent the order from going through
   // $errors->add( 'validation', 'Blocking orders, please ignore');
 }
+
 add_action('woocommerce_after_checkout_validation', 'zipValidate',10,2);
 
 ?>

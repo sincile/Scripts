@@ -5,12 +5,12 @@
 
 	Uses a CSV file containing sku and the field you'd like to enter (See examples below)
 
-	Metafields created either by Woo plugin product-feed-pro or entered by hand
-		can be updated to whatever works with your system
+	Meta field/tag can be changed to what every your system needs
+
 
 */
 
-	$file = getcwd()."/wp-content/Scripts/SKU-UPC.csv";
+	$file = getcwd()."/Path/to/csv/SKU-UPC.csv";
 	$csv = array_map('str_getcsv', file($file));
 
 	//CSV file heading: SKU,UPC (Don't include)
@@ -20,8 +20,8 @@
 
 	// wpfoof-gtin-name   =  meta key to update
 
-	//$innerArray[0] = sku
-	//$innerArray[1] = upc
+	//$innerArray[0] = sku or column 1
+	//$innerArray[1] = upc or colum 2
 	foreach ($csv as $index => $innerArray) {
 		$prodID  = wc_get_product_id_by_sku($innerArray[0]);
 		//Run the code only if there's a product with that sku number

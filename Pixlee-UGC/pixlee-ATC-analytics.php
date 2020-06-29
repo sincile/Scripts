@@ -1,5 +1,6 @@
 <!-- This is a script that enables the activation of the Pixlee UGC
       Our site was highly customized at this point so many of the jQuery selects are overly complicated
+      If I had more time sessions would be a better solution than cookies 
 
  -->
 
@@ -20,7 +21,7 @@
 <script>
   // Pixlee message passing function, sets cookies for entire session when
   // user interacts with the Pixlee UGC wall
-  // Cookie is needed for other script to trigger  
+  // Cookie is needed for other script to trigger
 		function receiveMessage(event) {
 			if (event.data) {
 					try {

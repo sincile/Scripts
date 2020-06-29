@@ -1,4 +1,6 @@
-<!---Change the API Key for this to work
+<!---
+	Customized analytics code for the Pixlee checkout 
+	Change the API Key for this to work
 			API Keys on Line(s):
 								40
 	-->

@@ -1,8 +1,9 @@
 <?php
 /*
   This script generates a CSV log file of all 1000 woocommerce orders as well if the order was exported to the client
-  Add this to your cronjob at the end of the day
-  Assumptions: Must have Woo Export Suite Plugin, WP mail must be enabled
+  Dependencies:
+    Must have Woo Export Suite Plugin
+    WP mail must be enabled
 */
 function dailyOrders(){
 
